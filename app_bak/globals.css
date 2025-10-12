@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --glass-blur: 14px;
+}
+
+html, body { height: 100%; background: #0D0D0D; color: #F9F9F9; }
+
+.gold-text { color: #D4AF37; }
+.gold-grad { background: linear-gradient(180deg,#F7E7A9 0%, #D4AF37 40%, #B08D57 100%); -webkit-background-clip:text; background-clip:text; color: transparent; }
+
+.card {
+  @apply rounded-xl2 border border-white/10 bg-white/5 backdrop-blur-[14px] transition hover:bg-white/8;
+}
+
+.shimmer {
+  position: relative; overflow: hidden;
+}
+.shimmer::after{
+  content:''; position:absolute; inset:-200% -50%;
+  background: linear-gradient(120deg, transparent 42%, rgba(255,255,255,.22) 50%, transparent 58%);
+  animation: sweep 2.2s infinite;
+}
+@keyframes sweep { from { transform: translateX(-40%);} to { transform: translateX(40%);} }

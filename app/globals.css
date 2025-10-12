@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------
+   🌙 Base styling for the entire website
+--------------------------------------- */
+html, body {
+  background: #0D0D0D; /* deep luxury black */
+  color: #F9F9F9; /* soft white for readability */
+  font-family: 'Poppins', system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ---------------------------------------
+   ✨ Gold accent utilities
+--------------------------------------- */
+
+/* Static gold text */
+.gold-text {
+  color: #D4AF37;
+}
+
+/* Animated shimmering gold text */
+.gold-animated {
+  background: linear-gradient(
+    90deg,
+    #d4af37 0%,
+    #f8e07e 25%,
+    #d4af37 50%,
+    #b8911b 75%,
+    #d4af37 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ---------------------------------------
+   💫 Card hover effects
+--------------------------------------- */
+.card-gold-hover {
+  transition: all 0.3s ease;
+}
+.card-gold-hover:hover {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+  border-color: #D4AF37;
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------------------------------------
+   🌌 Optional: Subtle scrollbar styling
+--------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f0d36a;
+}
+
