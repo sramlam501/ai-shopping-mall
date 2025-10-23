@@ -1,81 +1,60 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
 
-/* ---------------------------------------
-   🌙 Base styling for the entire website
---------------------------------------- */
-html, body {
-  background: #0D0D0D; /* deep luxury black */
-  color: #F9F9F9; /* soft white for readability */
-  font-family: 'Poppins', system-ui, sans-serif;
-  scroll-behavior: smooth;
-}
+/* ---- Theme tokens for shadcn (Tailwind v4-ready) ---- */
+:root {
+  --background: 12 12% 6%;         /* deep charcoal */
+  --foreground: 0 0% 100%;
 
-/* ---------------------------------------
-   ✨ Gold accent utilities
---------------------------------------- */
+  --card: 226 14% 10%;
+  --card-foreground: 0 0% 98%;
 
-/* Static gold text */
-.gold-text {
-  color: #D4AF37;
-}
+  --popover: 226 14% 10%;
+  --popover-foreground: 0 0% 98%;
 
-/* Animated shimmering gold text */
-.gold-animated {
-  background: linear-gradient(
-    90deg,
-    #d4af37 0%,
-    #f8e07e 25%,
-    #d4af37 50%,
-    #b8911b 75%,
-    #d4af37 100%
-  );
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 6s linear infinite;
+  --primary: 45 68% 54%;           /* GOLD */
+  --primary-foreground: 0 0% 10%;
+
+  --secondary: 220 10% 18%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 220 10% 22%;
+  --muted-foreground: 220 10% 75%;
+
+  --accent: 45 68% 54%;
+  --accent-foreground: 0 0% 10%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 220 12% 22%;
+  --input: 220 12% 22%;
+  --ring: 45 68% 54%;
+
+  --radius: 1rem;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* optional dark selector if you want light mode later */
+.dark {
+  --background: 12 12% 6%;
+  --foreground: 0 0% 100%;
 }
 
-/* ---------------------------------------
-   💫 Card hover effects
---------------------------------------- */
-.card-gold-hover {
-  transition: all 0.3s ease;
-}
-.card-gold-hover:hover {
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
-  border-color: #D4AF37;
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.05);
+* { border-color: hsl(var(--border)); }
+html, body { height: 100%; }
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ---------------------------------------
-   🌌 Optional: Subtle scrollbar styling
---------------------------------------- */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0D0D0D;
-}
-::-webkit-scrollbar-thumb {
-  background: #D4AF37;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #f0d36a;
+/* utility: glass */
+.glass {
+  background: color-mix(in oklab, hsl(var(--foreground)) 8%, transparent);
+  backdrop-filter: blur(18px);
+  border: 1px solid color-mix(in oklab, hsl(var(--foreground)) 14%, transparent);
+  box-shadow: 0 10px 40px rgba(0,0,0,.25);
 }
 

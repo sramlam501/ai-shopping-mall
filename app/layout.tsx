@@ -1,19 +1,21 @@
-import './globals.css';
-import * as React from 'react';
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
+import type { Metadata } from "next";
+import "./globals.css";
+import { Inter } from "next/font/google";
 
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+export const metadata: Metadata = {
+  title: "AI Shopping Mall",
+  description: "Where AI meets luxury living",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="bg-[#0D0D0D] text-white">
-        <NavBar />
-        {children}
-        <Footer />
-      </body>
+    <html lang="en" className={inter.variable}>
+      <body className="min-h-screen font-sans antialiased">{children}</body>
     </html>
   );
 }
+
 
 
